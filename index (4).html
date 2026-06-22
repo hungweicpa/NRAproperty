@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>外國人在美國傳承房產的稅務攻略 — 洪巍會計師 CPA</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif+TC:wght@500;700&family=Noto+Sans+TC:wght@400;500;700&family=IBM+Plex+Mono:wght@400;500&display=swap');
+:root{
+  --ink:#14181c;--ink-soft:#52585f;--ink-faint:#878d92;
+  --paper:#f5f3ec;--card:#fbfaf5;--rule:#d8d3c3;--rule-s:#bdb6a1;
+  --navy:#1c3144;--navy-light:#2a4a62;
+  --red-dark:#791F1F;--red-mid:#c84a3f;--red-bg:#fcebeb;--red-bdr:#c84a3f;
+  --amber-dark:#633806;--amber-mid:#b87c1a;--amber-bg:#faeeda;--amber-bdr:#b87c1a;
+  --teal-dark:#085041;--teal-mid:#0f6e56;--teal-bg:#daeee5;--teal-bdr:#0f6e56;
+  --purple-dark:#26215C;--purple-mid:#3e3898;--purple-bg:#e6e5f7;--purple-bdr:#3e3898;
+  --gray-dark:#444441;--gray-mid:#888780;--gray-bg:#f1efe8;--gray-bdr:#888780;
+  --shadow:0 1px 3px rgba(20,24,28,.06),0 6px 20px rgba(20,24,28,.06);
+  --shadow-lg:0 2px 6px rgba(20,24,28,.08),0 12px 32px rgba(20,24,28,.09);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:'Noto Sans TC',sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+
+/* ── NAV ── */
+nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:100}
+.nav-logo{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:.06em;color:rgba(241,239,231,.6);text-decoration:none}
+.nav-links{display:flex;gap:24px}
+.nav-links a{font-size:12.5px;color:rgba(241,239,231,.6);text-decoration:none;letter-spacing:.02em;transition:color .15s}
+.nav-links a:hover{color:#f1efe7}
+
+/* ── HERO ── */
+.hero{background:var(--navy);padding:56px 28px 52px}
+.hero-inner{max-width:960px;margin:0 auto}
+.hero-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:rgba(241,239,231,.4);margin-bottom:16px}
+.hero h1{font-family:'Noto Serif TC',serif;font-weight:700;font-size:clamp(24px,4vw,40px);color:#f1efe7;line-height:1.25;margin-bottom:14px}
+.hero h1 em{font-style:normal;color:#9FE1CB}
+.hero-sub{font-size:15px;color:rgba(241,239,231,.65);max-width:60ch;line-height:1.8;margin-bottom:28px}
+.hero-notice{background:rgba(156,47,38,.2);border-left:3px solid #e06058;padding:10px 16px;font-size:12.5px;color:rgba(241,239,231,.65);border-radius:2px;max-width:62ch}
+.hero-stats{display:flex;gap:32px;margin-top:32px;flex-wrap:wrap}
+.stat{display:flex;flex-direction:column;gap:2px}
+.stat-num{font-family:'Noto Serif TC',serif;font-size:28px;font-weight:700;color:#9FE1CB}
+.stat-label{font-size:11.5px;color:rgba(241,239,231,.5);font-family:'IBM Plex Mono',monospace;letter-spacing:.04em}
+
+/* ── SECTION WRAPPER ── */
+.section{max-width:960px;margin:0 auto;padding:52px 24px}
+.section-title{font-family:'Noto Serif TC',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--navy);margin-bottom:8px}
+.section-sub{font-size:13.5px;color:var(--ink-soft);margin-bottom:28px;max-width:64ch;line-height:1.7}
+.sec-divider{border:none;border-top:1px solid var(--rule);margin:0}
+
+/* ── SECTION 1: KEY CONCEPT ── */
+.concept-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.concept-card{background:var(--card);border:1px solid var(--rule);border-radius:12px;padding:20px 22px;box-shadow:var(--shadow)}
+.concept-card .cc-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-faint);margin-bottom:8px}
+.concept-card .cc-title{font-size:15px;font-weight:500;color:var(--ink);margin-bottom:8px;line-height:1.35}
+.concept-card .cc-body{font-size:13px;color:var(--ink-soft);line-height:1.7}
+.concept-card.highlight{border-color:var(--navy);border-width:1.5px}
+.concept-card .cc-accent{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:6px}
+
+/* ── SECTION 2: 18 GATES ── */
+.gates-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.gate-card{background:var(--card);border:1px solid var(--rule);border-radius:10px;overflow:hidden;cursor:pointer;box-shadow:var(--shadow);transition:box-shadow .15s,transform .15s}
+.gate-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px)}
+.gate-card.open{border-color:var(--rule-s)}
+.gate-bar{height:4px}
+.gate-body{padding:14px 15px 12px}
+.gate-top{display:flex;align-items:flex-start;gap:8px}
+.gate-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint);flex-shrink:0;padding-top:2px}
+.gate-title{font-size:13px;font-weight:500;color:var(--ink);line-height:1.35}
+.gate-meta{display:flex;gap:6px;margin-top:8px;flex-wrap:wrap}
+.cat-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:2px 7px;border-radius:2px}
+.risk-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;padding:2px 7px;border-radius:2px;border:1px solid currentColor}
+.gate-detail{font-size:12.5px;color:var(--ink-soft);line-height:1.6;margin-top:10px;padding-top:10px;border-top:1px solid var(--rule);display:none}
+.gate-card.open .gate-detail{display:block}
+
+/* ── SECTION 3: PATH EXPLORER ── */
+.legend-row{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:18px}
+.leg{display:flex;align-items:center;gap:6px;font-size:12px;color:var(--ink-soft)}
+.leg-d{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.center-box{background:var(--card);border:1.5px solid var(--navy);border-radius:12px;padding:14px 20px;display:flex;align-items:center;gap:14px;margin-bottom:22px;box-shadow:var(--shadow)}
+.center-box .cb-icon{width:40px;height:40px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
+.center-box .cb-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:3px}
+.center-box .cb-title{font-size:14px;font-weight:500;color:var(--ink)}
+.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:22px}
+.path-btn{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:12px 13px;cursor:pointer;text-align:left;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s;display:flex;flex-direction:column;gap:3px}
+.path-btn:hover{border-color:var(--rule-s);box-shadow:var(--shadow-lg)}
+.path-btn.active{border-color:var(--navy);border-width:1.5px}
+.path-btn .pid{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint)}
+.path-btn .pname{font-size:13px;font-weight:500;color:var(--ink);line-height:1.3}
+.path-btn .ptag{font-size:11px;color:var(--ink-faint)}
+.pbar{height:3px;border-radius:2px;margin-top:6px}
+.detail-panel{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);margin-bottom:22px}
+.detail-none{padding:36px 24px;text-align:center;font-size:13.5px;color:var(--ink-faint)}
+.d-header{padding:20px 24px 16px;border-bottom:1px solid var(--rule)}
+.d-pid{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint);letter-spacing:.08em;margin-bottom:4px}
+.d-title{font-family:'Noto Serif TC',serif;font-size:18px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.d-desc{font-size:13.5px;color:var(--ink-soft);line-height:1.7}
+.outcome-row{display:flex;align-items:flex-start;gap:14px;padding:14px 24px;border-bottom:1px solid var(--rule)}
+.outcome-row:last-child{border-bottom:none}
+.o-dot{width:10px;height:10px;border-radius:50%;flex-shrink:0;margin-top:5px}
+.o-label{font-size:13.5px;font-weight:500;line-height:1.35;margin-bottom:4px}
+.o-gate{font-family:'IBM Plex Mono',monospace;font-size:10.5px;margin-bottom:4px}
+.o-detail{font-size:13px;color:var(--ink-soft);line-height:1.65}
+.o-verdict{display:inline-block;font-size:10.5px;font-family:'IBM Plex Mono',monospace;padding:2px 8px;border-radius:3px;border:1px solid currentColor;margin-top:5px}
+.global-box{background:var(--card);border:1px solid var(--rule);border-radius:12px;overflow:hidden;box-shadow:var(--shadow)}
+.global-header{padding:14px 20px;background:#f0ede5;border-bottom:1px solid var(--rule);display:flex;align-items:flex-start;gap:12px}
+.global-badge{font-family:'IBM Plex Mono',monospace;font-size:10px;background:var(--purple-bg);color:var(--purple-mid);border:1px solid var(--purple-bdr);padding:3px 8px;border-radius:3px;white-space:nowrap;margin-top:1px;flex-shrink:0}
+.global-text strong{display:block;font-size:14px;font-weight:500;color:var(--ink);margin-bottom:2px}
+.global-text p{font-size:12.5px;color:var(--ink-soft)}
+.global-rows{display:grid;grid-template-columns:1fr 1fr 1fr}
+.global-row{padding:16px 20px;border-right:1px solid var(--rule)}
+.global-row:last-child{border-right:none}
+.g-num{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--purple-mid);margin-bottom:3px}
+.g-label{font-size:13px;font-weight:500;color:var(--purple-dark);margin-bottom:6px}
+.g-tip{font-size:12.5px;color:var(--ink-soft);line-height:1.6}
+
+/* ── AUTHOR ── */
+.author-section{background:var(--card);border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:48px 24px}
+.author-inner{max-width:960px;margin:0 auto}
+.author-card{background:#fff;border:1px solid var(--rule);border-radius:16px;padding:28px 32px;box-shadow:var(--shadow-lg);display:flex;gap:28px;align-items:flex-start}
+.author-avatar{width:88px;height:88px;border-radius:50%;object-fit:cover;flex-shrink:0;border:3px solid var(--rule)}
+.author-info{flex:1}
+.author-eyebrow{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-mid);margin-bottom:6px}
+.author-name{font-family:'Noto Serif TC',serif;font-size:24px;font-weight:700;color:var(--navy);margin-bottom:4px}
+.author-role{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px}
+.author-role span{color:var(--rule-s);margin:0 8px}
+.author-bio{font-size:14px;color:var(--ink-soft);line-height:1.75;margin-bottom:20px;max-width:62ch}
+.author-contacts{display:flex;flex-wrap:wrap;gap:10px}
+.contact-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border:1px solid var(--rule-s);border-radius:8px;font-size:13px;color:var(--ink-soft);text-decoration:none;background:var(--paper);transition:border-color .15s,color .15s}
+.contact-btn:hover{border-color:var(--navy);color:var(--navy)}
+.contact-btn.fb{background:#1877F2;border-color:#1877F2;color:#fff}
+.contact-btn.fb:hover{background:#1565d8;border-color:#1565d8}
+
+/* ── FOOTER ── */
+.site-footer{background:var(--navy);padding:32px 24px;text-align:center}
+.site-footer p{font-size:12px;color:rgba(241,239,231,.4);line-height:1.8;max-width:70ch;margin:0 auto}
+
+/* ── RESPONSIVE ── */
+@media(max-width:720px){
+  .concept-grid{grid-template-columns:1fr}
+  .gates-grid{grid-template-columns:1fr 1fr}
+  .paths-grid{grid-template-columns:1fr 1fr}
+  .global-rows{grid-template-columns:1fr}
+  .global-row{border-right:none;border-bottom:1px solid var(--rule)}
+  .global-row:last-child{border-bottom:none}
+  .author-card{flex-direction:column;gap:20px;padding:22px 20px}
+  .author-avatar{width:72px;height:72px}
+  .nav-links{display:none}
+}
+@media(max-width:480px){
+  .gates-grid{grid-template-columns:1fr}
+  .paths-grid{grid-template-columns:1fr}
+  .hero{padding:36px 20px 40px}
+  .section{padding:40px 18px}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="#" class="nav-logo">NRA 房產傳承 · 稅務指南</a>
+  <div class="nav-links">
+    <a href="#concept">核心概念</a>
+    <a href="#gates">十八銅人</a>
+    <a href="#explorer">路徑探索</a>
+    <a href="#author">關於作者</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-eyebrow">NRA 美國房產傳承完整指南 · 2026</div>
+    <h1>外國人把美國房產<br>留給子女，有多難？<em>十八道關卡</em>告訴你。</h1>
+    <p class="hero-sub">非稅務居民外國人（NRA）在美國傳承房產，遠比想像中複雜。從遺產稅的結構性劣勢、FIRPTA 預扣、外國公司的分支利潤稅，到子女端的 CFC 申報義務與受贈人連帶責任——本頁系統整理 18 個實務關卡與 9 條移轉路徑，幫你在諮詢前想清楚要問什麼。</p>
+    <div class="hero-notice">本頁內容僅供討論前參考，不構成稅務或法律意見。實際規劃請務必諮詢熟悉跨境遺產與贈與稅的專業會計師或律師。</div>
+    <div class="hero-stats">
+      <div class="stat"><div class="stat-num">18</div><div class="stat-label">稅務關卡</div></div>
+      <div class="stat"><div class="stat-num">9</div><div class="stat-label">移轉路徑</div></div>
+      <div class="stat"><div class="stat-num">40%</div><div class="stat-label">NRA 最高遺產稅率</div></div>
+      <div class="stat"><div class="stat-num">US$60K</div><div class="stat-label">NRA 遺產稅免稅額</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 1: CORE CONCEPTS -->
+<div id="concept"></div>
+<section class="section">
+  <div class="section-title">為什麼 NRA 的處境特別困難？</div>
+  <p class="section-sub">這四個概念是整個規劃的基礎，影響所有路徑的選擇邏輯。</p>
+  <div class="concept-grid">
+    <div class="concept-card highlight">
+      <div class="cc-label">關卡 01 · 核心不對稱</div>
+      <div class="cc-accent">US$60,000</div>
+      <div class="cc-title">NRA 遺產稅免稅額，美國公民是 1,300 萬美元以上</div>
+      <div class="cc-body">差距超過 200 倍。超過 6 萬美元的美國境內資產，身故時最高稅率 40%。這是整個規劃「為什麼要繞路」的根本原因。</div>
+    </div>
+    <div class="concept-card">
+      <div class="cc-label">關卡 04 · 最容易被忽略的優勢</div>
+      <div class="cc-title">Step-up basis：增值越大，繼承越划算</div>
+      <div class="cc-body">繼承取得的房屋，成本基礎自動重設為身故當時市價（IRC §1014），先前所有未實現增值全部歸零。一棟買了 30 年、增值 5 倍的房子，透過繼承可以省下非常可觀的資本利得稅，有時比規避遺產稅更划算。</div>
+    </div>
+    <div class="concept-card">
+      <div class="cc-label">關卡 02 · 有形 vs. 無形資產</div>
+      <div class="cc-title">贈與「房子」要課稅，贈與「股份」通常不課</div>
+      <div class="cc-body">NRA 贈與美國境內「有形財產」（如房地產）課贈與稅；贈與「無形資產」（如外國公司股份）原則上不課（§2501(a)(2)）。這個差異是所有公司架構規劃的核心邏輯，也是很多路徑「把房子包進公司」的原因。</div>
+    </div>
+    <div class="concept-card">
+      <div class="cc-label">關卡 15·16·17 · 背景風險</div>
+      <div class="cc-title">未申報的贈與，風險不會消失，只是轉嫁給子女</div>
+      <div class="cc-body">quitclaim deed 在州政府登記不代表稅務義務消失。未申報 Form 709 則核課時效永不起算；IRC §6324(b) 規定贈與稅由受贈人（子女）連帶承擔；留置權自贈與日起黏附房屋 10 年，但個人連帶責任的訴訟時效不受這 10 年限制——法院裁定是從國稅局完成稅務評定後再算 10 年，真實案例顯示贈與後 14 年仍被追繳。父母離境不代表問題消解。</div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- SECTION 2: 18 GATES -->
+<div id="gates"></div>
+<section class="section">
+  <div class="section-title">十八銅人：18 個稅務關卡</div>
+  <p class="section-sub">點選任一關卡查看詳細說明。顏色代表關卡性質：<span style="color:var(--red-mid)">■ 移轉稅</span> <span style="color:var(--amber-mid)">■ 所得稅／預扣</span> <span style="color:var(--teal-mid)">■ 子女端申報</span> <span style="color:var(--purple-mid)">■ 合規執法</span></p>
+  <div class="gates-grid" id="gatesGrid"></div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- SECTION 3: PATH EXPLORER -->
+<div id="explorer"></div>
+<section class="section">
+  <div class="section-title">9 種移轉路徑比較</div>
+  <p class="section-sub">點選路徑查看決策說明與所有稅務後果，每個後果對應上方的關卡編號。</p>
+
+  <div class="legend-row">
+    <div class="leg"><div class="leg-d" style="background:var(--red-mid)"></div>移轉稅風險高</div>
+    <div class="leg"><div class="leg-d" style="background:var(--amber-mid)"></div>所得稅／預扣</div>
+    <div class="leg"><div class="leg-d" style="background:var(--teal-mid)"></div>子女端申報或相對有利</div>
+    <div class="leg"><div class="leg-d" style="background:var(--purple-mid)"></div>合規執法風險</div>
+    <div class="leg"><div class="leg-d" style="background:var(--gray-mid)"></div>視個案而定</div>
+  </div>
+
+  <div class="center-box">
+    <div class="cb-icon">🏠</div>
+    <div>
+      <div class="cb-label">核心問題</div>
+      <div class="cb-title">非稅務居民外國人（NRA）如何把美國房產傳給在美子女？</div>
+    </div>
+  </div>
+
+  <div class="paths-grid" id="pathGrid"></div>
+  <div class="detail-panel" id="detailPanel">
+    <div class="detail-none">請點選上方任一路徑，查看決策說明與稅務後果</div>
+  </div>
+
+  <div class="global-box">
+    <div class="global-header">
+      <span class="global-badge">通用風險</span>
+      <div class="global-text">
+        <strong>適用於所有生前贈與路徑的三個背景風險</strong>
+        <p>無論選擇哪條路徑，只要有生前贈與行為，以下三個風險始終存在。</p>
+      </div>
+    </div>
+    <div class="global-rows">
+      <div class="global-row">
+        <div class="g-num">關卡 15</div>
+        <div class="g-label">未申報：時效永不起算</div>
+        <div class="g-tip">未申報 Form 709，國稅局核課時效永遠不開始計算，沒有三年時效保護。父母身故後子女申報遺產稅時，所有未申報贈與可能全部被翻出。</div>
+      </div>
+      <div class="global-row">
+        <div class="g-num">關卡 16</div>
+        <div class="g-label">受贈人連帶責任</div>
+        <div class="g-tip">IRC §6324(b)：父母未繳的贈與稅，子女在受贈財產價值範圍內須負個人連帶責任。父母離境不等於問題消失，風險整包轉嫁給人在美國的子女。</div>
+      </div>
+      <div class="global-row">
+        <div class="g-num">關卡 17</div>
+        <div class="g-label">贈與稅留置權 10 年（但個人責任不止於此）</div>
+        <div class="g-tip">§6324(b) 有兩個獨立機制：留置權自贈與日起 10 年有效，子女賣房辦貸款時會被 lien search 發現；但個人連帶責任的訴訟時效法院裁定不適用 10 年留置權限制，而是從國稅局對贈與人完成稅務評定後再算 10 年。贈與後 14 年仍被追繳的真實判例存在。若從未申報，時效根本不起算。「撐過 10 年就沒事」是常見誤解。</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<hr class="sec-divider">
+
+<!-- AUTHOR -->
+<div id="author"></div>
+<div class="author-section">
+  <div class="author-inner">
+    <div class="author-card">
+      <img class="author-avatar" src="data:image/jpeg;base64,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" alt="洪巍會計師 CPA">
+      <div class="author-info">
+        <div class="author-eyebrow">關於作者</div>
+        <div class="author-name">洪巍 會計師 CPA</div>
+        <div class="author-role">HYTC 會計師事務所 合夥人 <span>|</span> 臺美會計師協會 會長</div>
+        <p class="author-bio">服務多間大型集團、上市上櫃美國企業，深耕加州洛杉磯地區稅務規劃與財務諮詢。現任臺美會計師協會會長，致力於為華人社群提供專業、清晰的稅務資訊。</p>
+        <div class="author-contacts">
+          <a href="tel:6262921877" class="contact-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 014.36 12a19.79 19.79 0 01-3.07-8.67A2 2 0 013.28 1.25h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L7.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7a2 2 0 011.72 2.02z"/></svg>
+            (626) 292-1877
+          </a>
+          <a href="mailto:whung@hytccpa.com" class="contact-btn">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            whung@hytccpa.com
+          </a>
+          <a href="https://www.facebook.com/FedTaxNote" target="_blank" rel="noopener" class="contact-btn fb">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+            FedTaxNote
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="site-footer">
+  <p>本頁內容由洪巍會計師 CPA 整理，依據美國聯邦稅法（贈與稅、遺產稅、FIRPTA、CFC、PFIC、IRC §453B、§6324(b) 等）撰寫，未涵蓋特定州法、個案事實或租稅協定細節。<br>僅供諮詢前準備使用，不構成稅務或法律意見。如需個案規劃，請直接聯繫洪巍會計師事務所。</p>
+</footer>
+
+<script>
+const GATES=[
+  {num:"01",cat:"移轉稅",barColor:"#c84a3f",catCls:"cat-red",risk:"高",riskCls:"risk-high",
+   label:"遺產稅免稅額僅 US$60,000",
+   detail:"NRA 身故時持有美國不動產，遺產稅免稅額僅 US$60,000，超過部分最高稅率 40%。相較於美國公民的 1,300 萬美元以上，差距懸殊。這是整個傳承規劃的核心不對稱。"},
+  {num:"02",cat:"移轉稅",barColor:"#c84a3f",catCls:"cat-red",risk:"高",riskCls:"risk-high",
+   label:"生前贈與房屋照課贈與稅",
+   detail:"NRA 直接贈與美國不動產，沒有終身免稅額，每年只有約 US$19,000 年度排除額，超過部分最高稅率 40%，與遺產稅相同。幾乎在任何情況下都是高成本選項。"},
+  {num:"03",cat:"移轉稅",barColor:"#c84a3f",catCls:"cat-red",risk:"中",riskCls:"risk-mid",
+   label:"股份可規避移轉稅，房子本身不行",
+   detail:"NRA 贈與「無形資產」（如外國公司股份）原則上不課美國贈與稅（§2501(a)(2)），身故時也不列入美國遺產。但房子本身不是無形資產，必須先包進外國公司才能適用，而包裝動作本身有成本與風險。"},
+  {num:"04",cat:"所得稅與預扣",barColor:"#b87c1a",catCls:"cat-amber",risk:"中",riskCls:"risk-mid",
+   label:"Step-up basis：增值越大繼承越划算",
+   detail:"繼承取得的房屋，成本基礎自動重設為身故當時市價（IRC §1014），先前所有未實現增值全部歸零，不再課資本利得稅。增值越大，效果越值錢，是整個規劃中最常被忽略的變數。"},
+  {num:"05",cat:"所得稅與預扣",barColor:"#b87c1a",catCls:"cat-amber",risk:"中",riskCls:"risk-mid",
+   label:"FIRPTA：出售或移轉前須先預扣",
+   detail:"外國人處分美國不動產，買方須預扣並繳給 IRS：一般為成交金額 15%；100 萬以下且買方自住降為 10%；30 萬以下且自住可全免。這是現金流壓力，事後按實際利得多退少補。"},
+  {num:"06",cat:"所得稅與預扣",barColor:"#b87c1a",catCls:"cat-amber",risk:"高",riskCls:"risk-high",
+   label:"房子轉入公司這一步本身可能課稅",
+   detail:"房子已在個人名下，要移轉進外國公司，須符合 IRC §897(e)/§351 的特定免稅例外條件，否則這個移轉本身視同處分並立即觸發課稅。不能把重組當成免費步驟。"},
+  {num:"07",cat:"所得稅與預扣",barColor:"#b87c1a",catCls:"cat-amber",risk:"高",riskCls:"risk-high",
+   label:"外國公司直接持有不動產：分支利潤稅",
+   detail:"外國公司直接持有美國不動產，出租或出售利得通常構成 ECI，除一般公司所得稅外，還要再課 30% 分支利潤稅（Branch Profits Tax）。這是兩層稅，是外國公司架構最容易被忽略的成本。"},
+  {num:"08",cat:"所得稅與預扣",barColor:"#b87c1a",catCls:"cat-amber",risk:"高",riskCls:"risk-high",
+   label:"分期付款豁免本金：觸發即時所得稅",
+   detail:"以本票分期出售給子女、每年豁免本金，依 §453B，每次豁免都是「處分分期付款債權」，須立即就對應增值利得繳所得稅。親屬間豁免，債權公允價值不得低於票面金額。"},
+  {num:"09",cat:"所得稅與預扣",barColor:"#b87c1a",catCls:"cat-amber",risk:"中",riskCls:"risk-mid",
+   label:"本票利率不足：推算利息也要課稅",
+   detail:"分期付款合約若未按聯邦適用利率（AFR）收取足額利息，IRS 會依 §483/§1274 強制推算一筆利息所得並課稅。NRA 收到的利息所得通常需被預扣 30%，除非有租稅協定或符合例外。"},
+  {num:"10",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"高",riskCls:"risk-high",
+   label:"子女持有外國公司：CFC 申報義務",
+   detail:"若子女是美國人（公民、綠卡、稅務居民），且合計持股使外國公司構成 CFC，公司的 Subpart F 所得及 GILTI 須每年即時計入子女個人所得，即使公司未實際分配，還須申報 Form 5471。"},
+  {num:"11",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"中",riskCls:"risk-mid",
+   label:"外國公司持有不動產：PFIC 風險",
+   detail:"若外國公司以出租收入為主，可能被認定為 PFIC。美國子女持有 PFIC 的稅務計算比一般資本利得更複雜且不利，需申報 Form 8621。若同時構成 CFC，通常優先適用 CFC 規則。"},
+  {num:"12",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"中",riskCls:"risk-mid",
+   label:"公司持有自住房：喪失個人稅務優惠",
+   detail:"若房屋透過公司持有但供子女自住，子女無法享有自住房資本利得免稅額（單身 US$250,000，已婚 US$500,000）及房貸利息扣除。高房價城市損失相當實質。"},
+  {num:"13",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"高",riskCls:"risk-high",
+   label:"美國公司股份：遺產稅境內財產",
+   detail:"美國公司（C-corp 或被視為公司課稅的 LLC）的股份，明文規定屬於 NRA 的美國境內財產（§2104(a)），身故時計入美國遺產稅基礎。「成立美國公司持有房子」本身無法解決遺產稅問題。"},
+  {num:"14",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"中",riskCls:"risk-mid",
+   label:"本票餘額：父母身故時仍計入遺產",
+   detail:"親屬間賣房、子女開立本票的架構，若父母在本金豁免完畢前身故，尚未豁免的本票餘額依 IRC §2104(c) 仍被視為美國境內財產，計入遺產稅基礎。這是生前規劃無法完全消除的尾端風險。"},
+  {num:"15",cat:"合規與執法",barColor:"#3e3898",catCls:"cat-purple",risk:"高",riskCls:"risk-high",
+   label:"未申報贈與：核課時效永不起算",
+   detail:"未申報 Form 709，國稅局的核課時效永遠不開始計算，沒有三年時效保護。只要贈與行為存在，稅務債務就存在，父母身故後子女申報遺產稅時，所有未申報贈與可能全部被翻出。"},
+  {num:"16",cat:"合規與執法",barColor:"#3e3898",catCls:"cat-purple",risk:"高",riskCls:"risk-high",
+   label:"受贈人連帶責任：風險轉嫁子女",
+   detail:"IRC §6324(b) 明文規定：贈與人（父母）未繳的贈與稅，受贈人（子女）在受贈財產價值範圍內須負個人連帶責任。父母離境不繳稅，不代表問題消失，而是把整包風險轉嫁到人在美國的子女身上。"},
+  {num:"17",cat:"合規與執法",barColor:"#3e3898",catCls:"cat-purple",risk:"高",riskCls:"risk-high",
+   label:"贈與稅留置權 10 年，但個人責任不止 10 年",
+   detail:"§6324(b) 裡有兩個獨立機制，時效完全不同，常被混淆。第一：留置權——未繳贈與稅自動構成對受贈財產的留置權，自贈與之日起 10 年內有效。子女若在此期間出售房屋或辦理貸款，產權公司 lien search 就會讓問題浮現，卡住交易。第二：個人責任——若稅款未繳，子女就受贈財產的價值範圍內負個人連帶責任。這個責任的訴訟時效，法院明確裁定「不適用留置權的 10 年限制」，而是從國稅局對贈與人（或其遺產）完成稅務評定的那一天起，再算 10 年——也就是說，贈與後 14 年、20 年甚至更久，只要父母身故後國稅局查到未申報的贈與並補稅評定，評定日起 10 年內都可以對子女提起訴訟。實務上曾有贈與發生 14 年後，子女仍被法院判決須繳清贈與稅的真實案例（美國地方法院判決）。更重要的是：若從來沒有申報 Form 709，核課時效根本不會起算，上述任何時效都無從開始計算。「撐過 10 年就沒事」是常見的誤解。"},
+  {num:"18",cat:"合規與執法",barColor:"#3e3898",catCls:"cat-purple",risk:"高",riskCls:"risk-high",
+   label:"合夥／LLC 權益：situs 認定爭議最大",
+   detail:"NRA 透過合夥或 LLC 持有不動產再移轉權益，贈與稅與遺產稅上的 situs 認定長期存在爭議，IRS 可能主張 look-through 到底層不動產。出售合夥權益時，§864(c)(8) 也可能把增值視為 ECI 並要求預扣。"},
+];
+
+const CAT_COLORS={
+  "移轉稅":     {fill:"#fcebeb",text:"#791F1F",border:"#c84a3f"},
+  "所得稅與預扣":{fill:"#faeeda",text:"#633806",border:"#b87c1a"},
+  "子女端申報":  {fill:"#daeee5",text:"#085041",border:"#0f6e56"},
+  "合規與執法":  {fill:"#e6e5f7",text:"#26215C",border:"#3e3898"},
+};
+const RISK_COLORS={"高":["#c84a3f","#fcebeb"],"中":["#b87c1a","#faeeda"],"低":["#0f6e56","#daeee5"]};
+
+const gGrid=document.getElementById("gatesGrid");
+GATES.forEach((g,i)=>{
+  const cc=CAT_COLORS[g.cat];
+  const rc=RISK_COLORS[g.risk];
+  const div=document.createElement("div");
+  div.className="gate-card";
+  div.innerHTML=`<div class="gate-bar" style="background:${g.barColor}"></div>
+    <div class="gate-body">
+      <div class="gate-top">
+        <span class="gate-num">${g.num}</span>
+        <span class="gate-title">${g.label}</span>
+      </div>
+      <div class="gate-meta">
+        <span class="cat-badge" style="background:${cc.fill};color:${cc.text};border:1px solid ${cc.border}">${g.cat}</span>
+        <span class="risk-badge" style="color:${rc[0]};border-color:${rc[0]}">風險${g.risk}</span>
+      </div>
+      <div class="gate-detail">${g.detail}</div>
+    </div>`;
+  div.addEventListener("click",()=>{
+    const wasOpen=div.classList.contains("open");
+    document.querySelectorAll(".gate-card.open").forEach(c=>c.classList.remove("open"));
+    if(!wasOpen) div.classList.add("open");
+  });
+  gGrid.appendChild(div);
+});
+
+const PATHS=[
+  {id:"P1",name:"持有到身故繼承",tag:"最常見的預設選項",barColor:"var(--red-mid)",
+   desc:"父母不做任何生前規劃，房屋留在個人名下，身故後由子女依遺囑或無遺囑繼承取得。",
+   outcomes:[
+     {col:"red",label:"遺產稅最高 40%",gate:"關卡 01",detail:"NRA 身故時美國遺產稅免稅額僅 US$60,000，超過部分最高稅率 40%。若父母居住地與美國有遺產稅協定，可嘗試提高免稅額或主張抵免。"},
+     {col:"green",label:"Step-up basis 自動歸零增值",gate:"關卡 04",detail:"繼承取得的房屋，成本基礎自動重設為身故當時市價（IRC §1014），先前所有未實現增值全部歸零，不再課資本利得稅。增值越大，這個效果越值錢，往往比任何生前規劃更划算。"},
+     {col:"purple",label:"706-NA 申報＋過戶許可",gate:"關卡 15",detail:"須申報 Form 706-NA 並取得 transfer certificate 才能完成過戶，流程可能耗時數月，期間房屋難以出售或再融資。"},
+   ]},
+  {id:"P2",name:"直接贈與房屋",tag:"最直觀但通常最貴",barColor:"var(--red-mid)",
+   desc:"父母在世時直接把房屋產權過戶給子女，法律操作最簡單，但幾乎必然是稅負最重的選項之一。",
+   outcomes:[
+     {col:"red",label:"贈與稅最高 40%",gate:"關卡 02",detail:"不動產屬美國境內有形財產，NRA 沒有終身免稅額，年度排除額僅約 US$19,000，超過部分最高稅率 40%，與遺產稅相同。"},
+     {col:"amber",label:"放棄 step-up，增值留給子女",gate:"關卡 04",detail:"生前贈與使用 carryover basis，子女繼承父母的原始成本，未來出售時就所有累積增值繳資本利得稅。等於雙重承擔：贈與稅＋未來資本利得稅。"},
+   ]},
+  {id:"P3",name:"分期付款本票＋豁免本金",tag:"規避贈與稅但換來所得稅",barColor:"var(--amber-mid)",
+   desc:"父母以市價把房屋「賣」給子女，子女開立本票分期付款，父母每年利用贈與稅年度排除額豁免一部分本金。",
+   outcomes:[
+     {col:"amber",label:"FIRPTA 預扣 10%–15%",gate:"關卡 05",detail:"過戶當下，子女須承擔 FIRPTA 預扣：一般為成交金額 15%；100 萬以下且子女自住降為 10%；30 萬以下且自住可全免。現金流壓力大，事後按實際利得多退少補。"},
+     {col:"amber",label:"每次豁免觸發即時所得稅",gate:"關卡 08",detail:"依 §453B，豁免本金視同「處分分期付款債權」，須立即就對應增值利得繳所得稅。親屬間豁免，債權公允價值不得低於票面金額，不能用「債權貶值」降低稅基。"},
+     {col:"amber",label:"本票利率須達 AFR",gate:"關卡 09",detail:"合約利率若低於 AFR，IRS 強制推算利息所得並課稅。NRA 收到的利息通常還要被預扣 30%，除非有租稅協定或符合 portfolio interest 例外。"},
+     {col:"purple",label:"本票餘額計入遺產",gate:"關卡 14",detail:"若父母在本金豁免完畢前身故，尚未豁免的本票餘額依 §2104(c) 仍被視為美國境內財產，計入遺產稅基礎。"},
+   ]},
+  {id:"P4",name:"賣房換現金，移轉資產",tag:"出售乾淨，但集中一次課稅",barColor:"var(--amber-mid)",
+   desc:"父母將房屋出售，再把款項以其他方式移轉給子女。解決了房屋本身的移轉稅問題，但所得稅集中在出售那一年。",
+   outcomes:[
+     {col:"amber",label:"增值集中一次實現，無法攤提",gate:"關卡 05",detail:"出售觸發 FIRPTA 預扣，增值大時稅負全部集中在同一年，是所有路徑中所得稅最集中的一種，無法分年攤提。"},
+     {col:"green",label:"現金存美國銀行帳戶不算遺產",gate:"關卡 04",detail:"款項存入美國銀行帳戶（非券商）則不算 NRA 的美國境內遺產財產，等於把高遺產稅風險的資產轉換成無遺產稅風險的資產。"},
+   ]},
+  {id:"P5",name:"外國公司持有，贈與股份（單層）",tag:"移轉稅有利，所得稅複雜",barColor:"var(--gray-mid)",
+   desc:"成立外國控股公司持有美國房屋，再把外國公司股份贈與或遺留給子女。股份屬無形資產，原則上可規避移轉稅，但所得稅與申報義務相當複雜。",
+   outcomes:[
+     {col:"green",label:"贈與稅通常可規避",gate:"關卡 03",detail:"外國公司股份屬無形資產，NRA 贈與無形資產原則上不課美國贈與稅（§2501(a)(2)）。身故時外國公司股份通常也不算美國境內遺產財產。"},
+     {col:"red",label:"轉入公司這一步本身可能課稅！",gate:"關卡 06",detail:"房子已在個人名下，移轉進外國公司須符合 §897(e)/§351 的特定免稅例外條件，否則立即觸發課稅。這步絕不能視為免費，必須事前請律師確認。"},
+     {col:"amber",label:"分支利潤稅：兩層稅",gate:"關卡 07",detail:"外國公司直接持有美國不動產，利得通常構成 ECI，除一般公司所得稅外還要再課 30% 分支利潤稅，是最容易被忽略的隱藏成本。"},
+     {col:"purple",label:"子女若是美國人：CFC 申報義務",gate:"關卡 10",detail:"子女合計持股若使公司構成 CFC，Subpart F 所得及 GILTI 須每年即時計入子女個人所得，即使公司未實際分配，還須申報 Form 5471。"},
+     {col:"purple",label:"出租型房屋：PFIC 風險",gate:"關卡 11",detail:"若外國公司以出租為主，可能被認定為 PFIC，稅務計算更不利，須申報 Form 8621。"},
+     {col:"amber",label:"子女自住房：喪失個人稅務優惠",gate:"關卡 12",detail:"公司持有的房屋，子女無法享有自住房資本利得免稅額（US$250K/US$500K）及房貸利息扣除。"},
+   ]},
+  {id:"P6",name:"外國公司＋美國 C-corp 雙層",tag:"主要解決分支利潤稅問題",barColor:"var(--gray-mid)",
+   desc:"外國公司持有一家美國 C-corp，C-corp 再持有房屋。C-corp 這一層阻擋了分支利潤稅，但整體維護成本更高。",
+   outcomes:[
+     {col:"green",label:"移轉稅：外國公司股份可規避",gate:"關卡 03",detail:"移轉的標的是外國公司股份，通常非美國境內財產，可規避贈與稅與遺產稅。此點與單層架構（P5）相同。"},
+     {col:"amber",label:"C-corp 阻擋分支利潤稅，改課股利預扣稅",gate:"關卡 07",detail:"C-corp 繳 21% 一般公司稅，替代外國公司的 30% 分支利潤稅，盈餘匯回外國母公司時改課股利預扣稅，但仍是兩層稅。"},
+     {col:"red",label:"美國 C-corp 股份本身是境內財產！",gate:"關卡 13",detail:"美國公司股份本身屬於 NRA 的美國境內財產（§2104(a)），所以美國 C-corp 只能當「中間持有工具」，不能是最終受贈的資產。"},
+     {col:"purple",label:"雙層申報義務更重",gate:"關卡 10",detail:"外國公司與美國 C-corp 各自有申報義務（Form 5471 等），維護成本比單層架構更高。子女端的 CFC/PFIC 問題與 P5 相同，依然存在。"},
+   ]},
+  {id:"P7",name:"分年贈與部分產權",tag:"以時間換稅負，適合小額增值",barColor:"var(--red-mid)",
+   desc:"利用年度贈與稅排除額（約 US$19,000），以共有（tenancy in common）方式逐年贈與部分所有權比例給子女。",
+   outcomes:[
+     {col:"amber",label:"贈與稅逐年分散，但不動產本身仍課稅",gate:"關卡 02",detail:"每年排除額可分散稅基，但不動產仍屬美國境內財產，超過排除額部分仍課贈與稅。大額房產可能需要十幾二十年才能移轉完。"},
+     {col:"amber",label:"carryover basis 逐步轉嫁給子女",gate:"關卡 04",detail:"每次贈與部分都是 carryover basis，未實現增值逐步轉嫁給子女，同時放棄了透過繼承一次歸零所有增值的機會。"},
+   ]},
+  {id:"P8",name:"信託＋人壽保險",tag:"解決現金流，不直接降稅負",barColor:"var(--gray-mid)",
+   desc:"搭配其他方案（通常是 P1 持有到身故繼承）使用。人壽保險理賠用於支付遺產稅，解決「房屋不易變現卻要繳稅」的流動性問題。",
+   outcomes:[
+     {col:"green",label:"保險理賠通常不算美國境內財產",gate:"關卡 01",detail:"人壽保險理賠通常不算 NRA 的美國境內遺產財產，可用於支應遺產稅，讓子女不必被迫出售房屋來籌措稅款。"},
+     {col:"gray",label:"不降低稅負，解決現金流問題",gate:"",detail:"這是搭配工具，主要解決的是「繳稅資金從哪裡來」的問題，而非降低稅負本身。必須與其他路徑搭配，不能單獨使用。"},
+     {col:"amber",label:"保費與信託長期維護成本",gate:"",detail:"每年保費加上信託維護費用，需仔細計算相對於預期遺產稅節省或墊付的淨效益，才能判斷是否划算。"},
+   ]},
+  {id:"P9",name:"合夥／LLC 權益移轉",tag:"法律不確定性最高，不建議主用",barColor:"var(--red-mid)",
+   desc:"透過合夥或 LLC 持有美國房屋，再移轉合夥或 LLC 權益。贈與稅與遺產稅上的 situs 認定長期存在爭議，是所有路徑中法律風險最高的一條。",
+   outcomes:[
+     {col:"red",label:"Situs 認定爭議：IRS 可能 look-through",gate:"關卡 18",detail:"IRS 對合夥/LLC 權益的 situs 態度保留，可能主張 look-through 到底層美國不動產，等同直接持有的移轉稅課稅風險，法律不確定性最高。"},
+     {col:"amber",label:"出售合夥權益可能被視為 ECI",gate:"關卡 18",detail:"外國人出售從事美國營業的合夥權益，依 §864(c)(8) 可能被視為 ECI 並強制預扣，使這條路徑更加不確定。"},
+     {col:"gray",label:"通常不建議作為主要規劃工具",gate:"",detail:"法律不確定性最高，業界普遍不建議作為主要傳承規劃工具，只適合能充分接受高度法律風險的個案。"},
+   ]},
+];
+
+const COL={
+  red:   {dot:"var(--red-mid)",  text:"var(--red-dark)",   bg:"var(--red-bg)",    border:"var(--red-bdr)",   verdict:"風險高"},
+  amber: {dot:"var(--amber-mid)",text:"var(--amber-dark)",  bg:"var(--amber-bg)",  border:"var(--amber-bdr)", verdict:"需評估"},
+  green: {dot:"var(--teal-mid)", text:"var(--teal-dark)",   bg:"var(--teal-bg)",   border:"var(--teal-bdr)",  verdict:"相對有利"},
+  purple:{dot:"var(--purple-mid)",text:"var(--purple-dark)",bg:"var(--purple-bg)", border:"var(--purple-bdr)",verdict:"合規風險"},
+  gray:  {dot:"var(--gray-mid)", text:"var(--gray-dark)",   bg:"var(--gray-bg)",   border:"var(--gray-bdr)",  verdict:"視個案"},
+};
+
+const pGrid=document.getElementById("pathGrid");
+const detailPanel=document.getElementById("detailPanel");
+
+PATHS.forEach(p=>{
+  const btn=document.createElement("button");
+  btn.className="path-btn";
+  btn.innerHTML=`<div class="pid">${p.id}</div><div class="pname">${p.name}</div><div class="ptag">${p.tag}</div><div class="pbar" style="background:${p.barColor}"></div>`;
+  btn.addEventListener("click",()=>{
+    document.querySelectorAll(".path-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+    let html=`<div class="d-header"><div class="d-pid">${p.id} · 移轉路徑</div><div class="d-title">${p.name}</div><div class="d-desc">${p.desc}</div></div><div>`;
+    p.outcomes.forEach(o=>{
+      const c=COL[o.col];
+      html+=`<div class="outcome-row"><div class="o-dot" style="background:${c.dot}"></div><div style="flex:1"><div class="o-label" style="color:${c.text}">${o.label}</div>${o.gate?`<div class="o-gate" style="color:${c.dot}">${o.gate}</div>`:""}<div class="o-detail">${o.detail}</div><span class="o-verdict" style="color:${c.text};background:${c.bg};border-color:${c.border}">${c.verdict}</span></div></div>`;
+    });
+    html+="</div>";
+    detailPanel.innerHTML=html;
+    detailPanel.scrollIntoView({behavior:"smooth",block:"nearest"});
+  });
+  pGrid.appendChild(btn);
+});
+</script>
+</body>
+</html>
