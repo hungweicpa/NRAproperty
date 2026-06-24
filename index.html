@@ -81,10 +81,12 @@ nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justif
 .center-box .cb-icon{width:40px;height:40px;background:var(--navy);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0}
 .center-box .cb-label{font-family:'IBM Plex Mono',monospace;font-size:10px;letter-spacing:.06em;color:var(--ink-faint);text-transform:uppercase;margin-bottom:3px}
 .center-box .cb-title{font-size:14px;font-weight:500;color:var(--ink)}
-.paths-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-bottom:22px}
+.paths-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:9px;margin-bottom:22px}
 .path-btn{background:var(--card);border:1px solid var(--rule);border-radius:10px;padding:12px 13px;cursor:pointer;text-align:left;box-shadow:var(--shadow);transition:border-color .15s,box-shadow .15s;display:flex;flex-direction:column;gap:3px}
 .path-btn:hover{border-color:var(--rule-s);box-shadow:var(--shadow-lg)}
 .path-btn.active{border-color:var(--navy);border-width:1.5px}
+.path-btn.warn-path{border-color:var(--red-bdr);background:#fff8f8}
+.path-btn.warn-path:hover{border-color:var(--red-mid);box-shadow:0 2px 8px rgba(200,74,63,.15)}
 .path-btn .pid{font-family:'IBM Plex Mono',monospace;font-size:10px;color:var(--ink-faint)}
 .path-btn .pname{font-size:13px;font-weight:500;color:var(--ink);line-height:1.3}
 .path-btn .ptag{font-size:11px;color:var(--ink-faint)}
@@ -139,7 +141,7 @@ nav{background:var(--navy);padding:0 28px;display:flex;align-items:center;justif
 @media(max-width:720px){
   .concept-grid{grid-template-columns:1fr}
   .gates-grid{grid-template-columns:1fr 1fr}
-  .paths-grid{grid-template-columns:1fr 1fr}
+  .paths-grid{grid-template-columns:repeat(2,1fr)}
   .global-rows{grid-template-columns:1fr}
   .global-row{border-right:none;border-bottom:1px solid var(--rule)}
   .global-row:last-child{border-bottom:none}
@@ -356,8 +358,8 @@ const GATES=[
    label:"公司持有自住房：喪失個人稅務優惠",
    detail:"若房屋透過公司持有但供子女自住，子女無法享有自住房資本利得免稅額（單身 US$250,000，已婚 US$500,000）及房貸利息扣除。高房價城市損失相當實質。"},
   {num:"13",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"高",riskCls:"risk-high",
-   label:"美國公司股份：遺產稅境內財產",
-   detail:"美國公司（C-corp 或被視為公司課稅的 LLC）的股份，明文規定屬於 NRA 的美國境內財產（§2104(a)），身故時計入美國遺產稅基礎。「成立美國公司持有房子」本身無法解決遺產稅問題。"},
+   label:"美國公司股份：贈與稅免，遺產稅不免——三重陷阱",
+   detail:"這是整個 NRA 規劃中最容易被誤解的地方，因為美國公司股份在贈與稅和遺產稅的待遇完全不對稱。【贈與稅】美國公司股票屬無形資產，NRA 生前贈與無形資產原則上不課美國贈與稅（§2501(a)(2)），這點是正確的。【遺產稅】但美國公司股份明文規定屬於 NRA 的美國境內財產（§2104(a)），身故時計入美國遺產稅基礎，最高稅率 40%。所以這個架構必須確保生前把股票全部贈與完，否則遺產稅風險完全沒有消除。【PHC 稅】用美國 C-corp 持有出租房屋，幾乎必然觸發 Personal Holding Company（PHC）問題：家族持股超過 50%、出租收入佔 60% 以上，即構成 PHC，公司層未分配所得額外被課 20% 懲罰稅，疊加在 21% 公司稅上，稅負極重。【USRPHC 問題】若美國公司主要資產是不動產，這家公司會被認定為 U.S. Real Property Holding Corporation（USRPHC）。一旦認定，子女未來出售公司股票的利得，依然透過 FIRPTA 機制被課稅並預扣——原本希望「賣股票而非賣房子」來規避 FIRPTA 的想法，在 USRPHC 認定下完全行不通。這三重陷阱正是為什麼業界通常採用「外國公司持有美國公司」的雙層結構，讓被移轉的標的是外國公司股份，而非美國公司股份。"},
   {num:"14",cat:"子女端申報",barColor:"#0f6e56",catCls:"cat-teal",risk:"中",riskCls:"risk-mid",
    label:"本票餘額：父母身故時仍計入遺產",
    detail:"親屬間賣房、子女開立本票的架構，若父母在本金豁免完畢前身故，尚未豁免的本票餘額依 IRC §2104(c) 仍被視為美國境內財產，計入遺產稅基礎。這是生前規劃無法完全消除的尾端風險。"},
@@ -410,6 +412,15 @@ GATES.forEach((g,i)=>{
 });
 
 const PATHS=[
+  {id:"P0",name:"美國公司持有，贈與美國公司股份",tag:"⚠️ 常見誤解：贈與稅免但遺產稅不免",barColor:"var(--red-mid)",
+   desc:"NRA 直接成立美國公司（C-corp）持有房屋，再把美國公司股份贈與子女。表面上看起來可以規避贈與稅，但實際上有三重陷阱，業界通常不建議以此作為最終持有架構。",
+   outcomes:[
+     {col:"green",label:"生前贈與股份：贈與稅可規避",gate:"關卡 03",detail:"美國公司股票屬無形資產，NRA 生前贈與無形資產原則上不課美國贈與稅（§2501(a)(2)）。這是這個架構唯一有效的部分。"},
+     {col:"red",label:"遺產稅完全無法規避！",gate:"關卡 13",detail:"美國公司股份明文規定屬於 NRA 的美國境內財產（§2104(a)），身故時計入美國遺產稅基礎，最高稅率 40%。贈與稅和遺產稅的待遇完全不對稱——生前贈與可免，但若沒在身故前贈與完，遺產稅照課。必須確保生前把股份全部移轉完，否則這個架構毫無保護效果。"},
+     {col:"red",label:"PHC 稅：額外 20% 懲罰稅",gate:"關卡 13",detail:"美國 C-corp 持有出租房屋，幾乎必然觸發 Personal Holding Company（PHC）問題。觸發條件：5 人以下股東持有超過 50% 股權（家族公司幾乎都符合），加上 60% 以上所得來自租金等被動收入。一旦觸發，未分配的 PHC 所得須額外繳 20% 懲罰稅，疊加在正常 21% 公司稅上，實際稅負極重。"},
+     {col:"red",label:"USRPHC：賣股票仍被視為賣房",gate:"關卡 13",detail:"若美國公司主要資產是不動產，會被認定為 U.S. Real Property Holding Corporation（USRPHC）。子女未來出售這家公司股票的利得，依然透過 FIRPTA 機制被課稅並預扣，與直接出售房屋完全相同——原本希望透過「賣股票而非賣房子」來規避 FIRPTA 的規劃，在 USRPHC 認定下完全行不通。"},
+     {col:"amber",label:"為什麼外國公司架構更好？",gate:"關卡 03",detail:"外國公司股份同時在贈與稅和遺產稅上都可以規避（非美國境內財產），而美國公司股份只有贈與稅可以規避、遺產稅完全無法規避，加上 PHC 和 USRPHC 問題，這正是業界通常採用「外國公司持有美國公司」雙層結構的原因——被移轉的最終標的必須是外國公司股份，而非美國公司股份。"},
+   ]},
   {id:"P1",name:"持有到身故繼承",tag:"最常見的預設選項",barColor:"var(--red-mid)",
    desc:"父母不做任何生前規劃，房屋留在個人名下，身故後由子女依遺囑或無遺囑繼承取得。",
    outcomes:[
@@ -448,11 +459,13 @@ const PATHS=[
      {col:"amber",label:"子女自住房：喪失個人稅務優惠",gate:"關卡 12",detail:"公司持有的房屋，子女無法享有自住房資本利得免稅額（US$250K/US$500K）及房貸利息扣除。"},
    ]},
   {id:"P6",name:"外國公司＋美國 C-corp 雙層",tag:"主要解決分支利潤稅問題",barColor:"var(--gray-mid)",
-   desc:"外國公司持有一家美國 C-corp，C-corp 再持有房屋。C-corp 這一層阻擋了分支利潤稅，但整體維護成本更高。",
+   desc:"外國公司持有一家美國 C-corp，C-corp 再持有房屋。C-corp 這一層阻擋了分支利潤稅，但整體維護成本更高。注意：這裡被移轉的標的是「外國公司股份」，而非美國公司股份，這個區別至關重要。",
    outcomes:[
      {col:"green",label:"移轉稅：外國公司股份可規避",gate:"關卡 03",detail:"移轉的標的是外國公司股份，通常非美國境內財產，可規避贈與稅與遺產稅。此點與單層架構（P5）相同。"},
      {col:"amber",label:"C-corp 阻擋分支利潤稅，改課股利預扣稅",gate:"關卡 07",detail:"C-corp 繳 21% 一般公司稅，替代外國公司的 30% 分支利潤稅，盈餘匯回外國母公司時改課股利預扣稅，但仍是兩層稅。"},
-     {col:"red",label:"美國 C-corp 股份本身是境內財產！",gate:"關卡 13",detail:"美國公司股份本身屬於 NRA 的美國境內財產（§2104(a)），所以美國 C-corp 只能當「中間持有工具」，不能是最終受贈的資產。"},
+     {col:"red",label:"美國 C-corp 股份本身是境內財產！",gate:"關卡 13",detail:"美國公司股份本身屬於 NRA 的美國境內財產（§2104(a)），所以美國 C-corp 只能當「中間持有工具」，不能是最終受贈的資產。被移轉的必須是上層外國公司股份，而非直接移轉美國 C-corp 股份。"},
+     {col:"red",label:"C-corp 持有出租房：PHC 懲罰稅",gate:"關卡 13",detail:"美國 C-corp 持有出租房屋，幾乎必然觸發 Personal Holding Company（PHC）問題：家族持股超過 50%、租金等被動收入佔 60% 以上，即構成 PHC。公司層未分配的 PHC 所得須額外繳 20% 懲罰稅，疊加在 21% 公司稅之上，稅負極重。"},
+     {col:"red",label:"USRPHC：賣股票仍被當賣房課稅",gate:"關卡 13",detail:"若美國 C-corp 主要資產是不動產，會被認定為 U.S. Real Property Holding Corporation（USRPHC）。子女未來出售美國 C-corp 股票的利得，依然透過 FIRPTA 機制被課稅並預扣，與直接出售房屋相同。原本希望「賣股票規避 FIRPTA」的規劃在此完全失效。"},
      {col:"purple",label:"雙層申報義務更重",gate:"關卡 10",detail:"外國公司與美國 C-corp 各自有申報義務（Form 5471 等），維護成本比單層架構更高。子女端的 CFC/PFIC 問題與 P5 相同，依然存在。"},
    ]},
   {id:"P7",name:"分年贈與部分產權",tag:"以時間換稅負，適合小額增值",barColor:"var(--red-mid)",
@@ -490,7 +503,7 @@ const detailPanel=document.getElementById("detailPanel");
 
 PATHS.forEach(p=>{
   const btn=document.createElement("button");
-  btn.className="path-btn";
+  btn.className="path-btn" + (p.id==="P0" ? " warn-path" : "");
   btn.innerHTML=`<div class="pid">${p.id}</div><div class="pname">${p.name}</div><div class="ptag">${p.tag}</div><div class="pbar" style="background:${p.barColor}"></div>`;
   btn.addEventListener("click",()=>{
     document.querySelectorAll(".path-btn").forEach(b=>b.classList.remove("active"));
